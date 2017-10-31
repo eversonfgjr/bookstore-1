@@ -1,0 +1,25 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "Projeto exemplo para o estudo de testes unitários em Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alancesar/bookstore.git"
+  },
+  "keywords": [
+    "test",
+    "mocha",
+    "node.js",
+    "javascript"
+  ],
+  "author": "Alan Cesar Elias, Willian F. Batista",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alancesar/bookstore/issues"
+  },
+  "homepage": "https://github.com/alancesar/bookstore#readme"
+}
