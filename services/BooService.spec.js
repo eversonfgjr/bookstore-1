@@ -1,5 +1,6 @@
 /* global describe, it */
 const assert = require('assert');
+const { expect } = require('chai');
 const BookService = require('./BookService');
 
 describe('BookService.js', () => {
@@ -35,6 +36,26 @@ describe('BookService.js', () => {
     result.then((book) => {
       assert.equal(book.title, 'The hitchhiker\'s guide to the galaxy');
       done(); // meu teste terminou;
+    });
+  });
+
+  it('Requisição válida e retorno com expect', () => {
+    // Given
+    const ISBN = '0345391802';
+    const bookService = new BookService();
+    const expected = {
+      authors: 'Adams, Douglas',
+      language: 'eng',
+      publisher: 'Harmony Books',
+      title: 'The hitchhiker\'s guide to the galaxy',
+    };
+
+    // When
+    const result = bookService.getBookByIsbn(ISBN);
+
+    // Then
+    return result.then((book) => {
+      expect(book).to.be.deep.equal(expected); // usando expect do chai
     });
   });
 });
