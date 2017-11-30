@@ -24,7 +24,7 @@ describe('BookService.js', () => {
     });
   });
 
-  it('Requisição válida e título do livro com done', (done) => {
+  it('Requisição válida e título do livro com done()', (done) => {
     // Given
     const ISBN = '0345391802';
 
