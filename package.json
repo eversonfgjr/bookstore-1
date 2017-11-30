@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/alancesar/bookstore#readme",
   "dependencies": {
-    "chai": "4.1.2",
-    "mocha": "4.0.1",
     "request": "2.83.0",
     "request-promise": "4.2.2"
   },
   "devDependencies": {
-    "sinon": "^4.1.2"
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }
