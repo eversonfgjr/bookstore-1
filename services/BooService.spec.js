@@ -1,5 +1,6 @@
 /* global describe, it */
 const assert = require('assert');
+const BookService = require('./BookService');
 
 describe('BookService.js', () => {
   it('Meu primeiro teste!', () => {
@@ -8,5 +9,18 @@ describe('BookService.js', () => {
     const c = a + b;
 
     assert.equal(c, 3);
+  });
+
+  it('Requisição válida e título do livro', () => {
+    // Given
+    const ISBN = '0345391802';
+
+    // When
+    const result = BookService.getBookByIsbn(ISBN);
+
+    // Then
+    return result.then((book) => {
+      assert.equal(book.title, 'The hitchhiker\'s guide to the galaxy');
+    });
   });
 });
