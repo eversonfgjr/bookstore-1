@@ -88,6 +88,13 @@ describe('BookService.js', () => {
     return result.then((book) => {
       expect(book).to.be.deep.equal(expected);
 
+      // Podemos melhorar!
+      const API_KEY = 'SPNROBO0';
+      expect(stubRpGet.calledWith({
+        uri: `http://isbndb.com/api/v2/json/${API_KEY}/book/${ISBN}`,
+        json: true,
+      })).to.be.equal(true);
+
       // Restaurando o método original
       stubRpGet.restore();
     });
