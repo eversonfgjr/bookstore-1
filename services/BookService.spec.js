@@ -1,9 +1,14 @@
 /* global describe, it */
+const chai = require('chai');
+const sinonChai = require('sinon-chai');
 const assert = require('assert');
 const { expect } = require('chai');
 const sinon = require('sinon');
 const rp = require('request-promise');
 const BookService = require('./BookService');
+
+chai.should();
+chai.use(sinonChai);
 
 describe('BookService.js', () => {
   it('Meu primeiro teste!', () => {
@@ -86,14 +91,15 @@ describe('BookService.js', () => {
 
     // Then
     return result.then((book) => {
-      expect(book).to.be.deep.equal(expected);
+      expect(book).to.be.deep.equal(expected); // Antes
+      book.should.to.be.deep.equal(expected); // Depois
 
       // Podemos melhorar!
       const API_KEY = 'SPNROBO0';
-      expect(stubRpGet.calledWith({
+      stubRpGet.should.be.calledWith({
         uri: `http://isbndb.com/api/v2/json/${API_KEY}/book/${ISBN}`,
         json: true,
-      })).to.be.equal(true);
+      });
 
       // Restaurando o método original
       stubRpGet.restore();
