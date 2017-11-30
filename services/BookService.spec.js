@@ -1,4 +1,4 @@
-/* global describe, it */
+/* global describe, it, afterEach */
 const chai = require('chai');
 const sinonChai = require('sinon-chai');
 const assert = require('assert');
@@ -11,6 +11,12 @@ chai.should();
 chai.use(sinonChai);
 
 describe('BookService.js', () => {
+  afterEach(() => {
+    if (rp.get.restore) {
+      rp.get.restore();
+    }
+  });
+
   it('Meu primeiro teste!', () => {
     const a = 1;
     const b = 2;
@@ -104,5 +110,9 @@ describe('BookService.js', () => {
       // Restaurando o método original
       stubRpGet.restore();
     });
+  });
+
+  it('Requisição inválida', () => {
+    chai.expect(() => BookService.getBookByIsbn()).to.be.throws('ISBN deve ser informado!');
   });
 });
