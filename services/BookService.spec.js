@@ -113,6 +113,8 @@ describe('BookService.js', () => {
   });
 
   it('Requisição inválida', () => {
-    chai.expect(() => BookService.getBookByIsbn()).to.be.throws('ISBN deve ser informado!');
+    chai.expect(() => {
+      BookService.getBookByIsbn();
+    }).to.be.throws('ISBN deve ser informado!');
   });
 });
