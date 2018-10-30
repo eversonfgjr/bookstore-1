@@ -10,11 +10,21 @@ node {
 
     stage('SonarQube') {
       //def scannerHome = tool 'SonarQube Scanner 3.2';
-      withSonarQubeEnv('SonarQube') {
-        sh "npm i sonarqube-scanner-node"
-        sh "npm run sonarqube "
-      }    
-    }    
+      try {
+        withSonarQubeEnv('SonarQube') {
+          sh "npm i sonarqube-scanner-node"
+          sh "npm run sonarqube "
+        }
+      }catch(Exception e) {
+        println e.getMessage()
+        echo "Não foi possível executar o sonarqube"
+      }  
+    }
+  
+  stage('Final') {
+    echo "Sucesso"
+  }
+  
   }
 
 
