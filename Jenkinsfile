@@ -1,7 +1,11 @@
+#!groovy
 node {
-    stage('SCM') {
-        git url: 'https://github.com/eversonfgjr/bookstore-1.git', -- url projeto
-            branch: 'master' -- branch do projeto
+  
+    env.NODEJS_HOME = "${tool 'node'}"
+    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+   
+  stage('SCM') {
+       checkout scm
     }
 
     stage('SonarQube') {
