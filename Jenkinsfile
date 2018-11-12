@@ -9,6 +9,7 @@ node {
     }
 
   stage('testes') {
+	sh 'npm install'	
        sh 'nyc --reporter=lcov --reporter=text-lcov npm test '
 
   }
