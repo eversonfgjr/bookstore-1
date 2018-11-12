@@ -22,6 +22,6 @@ describe('BookService.js', () => {
     const b = 2;
     const c = a + b;
  
-    assert.equal(c, 4);
+    assert.equal(c, 3);
   });
 });
