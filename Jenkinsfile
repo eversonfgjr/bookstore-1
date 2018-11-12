@@ -8,6 +8,11 @@ node {
        checkout scm
     }
 
+  stage('testes') {
+       sh 'nyc --reporter=lcov --reporter=text-lcov npm test '
+
+  }
+
     stage('SonarQube') {
       //def scannerHome = tool 'SonarQube Scanner 3.2';
       try {
